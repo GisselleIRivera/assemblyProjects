@@ -104,9 +104,7 @@
 	date14491: .asciiz "\nI-It fell outta my pocket when I ran through the forest--\n"
 	date14492: .asciiz "\nYou both freeze at the sound of the front door being broken down.  Xing whimpers under the bed.  Slowly, you hear Will stomping up the stairs and Marcus tenses beside you.  The door to your room is broken down, and Will stands there with the knife in his hands.\n"
 	date14493: .asciiz "\nBefore you have the chance to do anything, Marcus tackles Will and the knife flys into the air, dropping down right beside you.  You kick it away into the corner, then look back; Marcus and Will are grabbing, punching and bashing each other, yet neither is gaining an advantage over the other.\n"
-	
 	rock1: .asciiz "\nYou move as silently as you can before hiding.  The doors to the rink slam open and Will moves forward, unaware you're now behind him.  Shaking from fear, you step forward and raise the rock above your head.  Just as Will realizes you're there, he turns with his knife ready to stab you, but it's too late; you slam the rock into his head with all your strength.  He falls to the floor, and you keep going until there's tears in your eyes and blood on the floor, on your clothes, on the rock...  You start sobbing and are almost unable to catch your breath.\n\nThrough the haze of all the thoughts flying through your head, you manage to take out your phone and call the police, telling them what happened.  Later, when the police, your mother, sister and Marcus show up, you're sitting on the seat of a police car, shock blanket wrapped around you.  Everyone crowds around to try and comfort you, but they can't.  You just had the  worst date of your life.\n"
-	
 	date14494: .asciiz "\nThey both stand and face each other, but Will slips and falls, tumbling down the stairs.  You and Marcus stare in horror as Will remains still.  The ordeal is over, yet you're all still left with a feeling of dread.\n"
 	deadEnd: .asciiz "\nCongratulations, you've died.  At this date ended well for Will :)\n"
 	deadEnd2: .asciiz "\nCongratulations, you've survived.  Unfortunately, you've killed your date.  Better luck next time, I guess.\n"
@@ -133,18 +131,20 @@
 	ice213: .asciiz "\nIt's fine, Sunny.  Just go on ahead.  The bathrooms are over there, to the left.\n"
 	ice214: .asciiz "\nYou thank Will and walk off the ice.  Embarrassing.  You find the mirrors quickly once you enter the bathroom.  You cringe at your reflection.  Your nose is now crooked and the blood, still running down your chin, has stained your shirt.\n"
 	bathroom: .asciiz "\nOption 1) Try to fix your nose\nOption 2) Try to clean off your shirt in the sink\n"
-	
 	nose1: .asciiz "\nYou stare at your reflection for a few more moments, trying to psych yourself up and preparing for the pain to come.  You lift your hands to you nose and quickly realign it.  There's a loud crack and you shout, but otherwise, you're alright.  You're used to doing this from the occasional soccer injury.\nWhen you're done cleaning the blood off your face, you walk back out to the rink.  Will is waiting next to the little pink stain on the ice.\n"
 	nose2: .asciiz "\nGeez, now that all of that mess is out of the way, we can do what we came here to do.\n"
 	nose3: .asciiz "\nThroughout the night, You and Will are holding each other, arm in arm.  It wasn't romantic or anything, you just suck at skating and Will, as a hockey player, was the only thing keeping you from falling again.  When the time was reaching close to midnight, you two decide to drive home.\n"
 	nose4: .asciiz "\nWhen you two pull up to your driveway, Will turns off the car and walks you to the front door.  You both say your goodbyes, but neither leaves...\n"
 	noseOption: .asciiz "\nOption 1) Help him out\nOption 2) End the night better than it started\n"
-	
 	helpHim1: .asciiz "\nYou both stare into each others eyes.  Will leans forward just a little, but you stop him.\n\nI've just wanted to say this all night, but you got something stuck in your teeth from when we stopped and grabbed dinner.  Anyways, thanks for hanging out with me, Will.  Good night.\n"
 	helpHim2: .asciiz "\nYou smile at him, turn around and walk inside.  Will, wide-eyed and stunned speechless, walks to his car and drives off.\n"
-	
-	better1: .asciiz "\nYou both stare into each others eyes.  Will leans forward just a little, and you follow his lead.  The kiss started awkward.  Will forgot to close his eyes, and there was too much teeth, but in the end, he got the hang of it.  You both step apart \n"
-	
+	helpHim3: .asciiz "\nCongratulations, you successfully prevented a second date.  That's what he gets for friend-zoning you earlier.\n"
+	better1: .asciiz "\nYou both stare into each others eyes.  Will leans forward just a little, and you follow his lead.  The kiss started awkward.  Will forgot to close his eyes, and there was too much teeth, but in the end, he got the hang of it.  You both step apart.\n"
+	better2: .asciiz "\nSo... Does this mean this IS a date?\n"
+	better3: .asciiz "\nWill laughs, embarrassed, but nods his head.\n"
+	better4: .asciiz "\nSo, you think this was enough to warrant a second one?\n"
+	better5: .asciiz "\nYou roll your eyes fondly, but agree.  Your next date is next Sunday.\n"
+	better6: .asciiz "\nCongratulations, you found the only route that you actually 'win' in.  Can't wait for that second date.\n"
 	shirt1: .asciiz "\nYou pull your shirt off and turn the water on.  As you try and scrub the blood off with your hands, the drops that are still on your face begin to dry.  Behind you, the door to the bathroom opens up and Will walks in.\n"
 	shirt2: .asciiz "\nOkay, Sunny, you ready--\n"
 	shirt3: .asciiz "\nYou turn around and face Will.  He's staring at you, blushing.  You don't know what the problem is, you're both guys.  Just as you're about to ask if he's okay, his nose starts bleeding, then he faints.\n"
@@ -1084,8 +1084,77 @@
 	
 	#Try and painfully fix your nose
 	nose:
+	li $v0, 4
+	la $a0, nose1
+	syscall
 	
+	li $v0, 4
+	la $a0, nose2
+	syscall
 	
+	li $v0, 4
+	la $a0, nose3
+	syscall
+	
+	li $v0, 4
+	la $a0, nose4
+	syscall
+	
+	li $v0, 4
+	la $a0, noseOption
+	syscall
+	
+	li $v0, 5
+	syscall
+	la $t1, ($v0)
+	#If 1 (Help him), go to helpHim
+	beq $t1, 1, helpHim
+	#If 2 (Make night better), go to better
+	beq $t1, 2, better
+	
+	helpHim:
+	li $v0, 4
+	la $a0, helpHim1
+	syscall
+	
+	li $v0, 4
+	la $a0, helpHim2
+	syscall
+	
+	li $v0, 4
+	la $a0, helpHim3
+	syscall
+	
+	li $v0, 10
+	syscall
+	
+	better:
+	li $v0, 4
+	la $a0, better1
+	syscall
+	
+	li $v0, 4
+	la $a0, better2
+	syscall
+	
+	li $v0, 4
+	la $a0, better3
+	syscall
+	
+	li $v0, 4
+	la $a0, better4
+	syscall
+	
+	li $v0, 4
+	la $a0, better5
+	syscall
+	
+	li $v0, 4
+	la $a0, better6
+	syscall
+	
+	li $v0, 10
+	syscall
 	
 	#Try and clean your shirt
 	shirt:

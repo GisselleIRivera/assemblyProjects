@@ -1,4 +1,22 @@
 .data
+	welcomeTo: .asciiz "Welcome to...\n\n\n\n"
+                                                
+	
+	
+	theDatingGame: .ascii "                                                                                                                                                                                                                   .         .                          \n"
+"8888888 8888888888 8 8888        8 8 8888888888             8 888888888o.            .8.    8888888 8888888888  8 8888 b.             8     ,o888888o.                  ,o888888o.          .8.                   ,8.       ,8.          8 8888888888   \n"
+"      8 8888       8 8888        8 8 8888                   8 8888    `^888.        .888.         8 8888        8 8888 888o.          8    8888     `88.               8888     `88.       .888.                 ,888.     ,888.         8 8888         \n"
+"      8 8888       8 8888        8 8 8888                   8 8888        `88.     :88888.        8 8888        8 8888 Y88888o.       8 ,8 8888       `8.           ,8 8888       `8.     :88888.               .`8888.   .`8888.        8 8888         \n"
+"      8 8888       8 8888        8 8 8888                   8 8888         `88    . `88888.       8 8888        8 8888 .`Y888888o.    8 88 8888                     88 8888              . `88888.             ,8.`8888. ,8.`8888.       8 8888         \n"
+"      8 8888       8 8888        8 8 888888888888           8 8888          88   .8. `88888.      8 8888        8 8888 8o. `Y888888o. 8 88 8888                     88 8888             .8. `88888.           ,8'8.`8888,8^8.`8888.      8 888888888888 \n"
+"      8 8888       8 8888        8 8 8888                   8 8888          88  .8`8. `88888.     8 8888        8 8888 8`Y8o. `Y88888o8 88 8888                     88 8888            .8`8. `88888.         ,8' `8.`8888' `8.`8888.     8 8888         \n"
+"      8 8888       8 8888888888888 8 8888                   8 8888         ,88 .8' `8. `88888.    8 8888        8 8888 8   `Y8o. `Y8888 88 8888   8888888           88 8888   8888888 .8' `8. `88888.       ,8'   `8.`88'   `8.`8888.    8 8888         \n"
+"      8 8888       8 8888        8 8 8888                   8 8888        ,88'.8'   `8. `88888.   8 8888        8 8888 8      `Y8o. `Y8 `8 8888       .8'           `8 8888       .8'.8'   `8. `88888.     ,8'     `8.`'     `8.`8888.   8 8888         \n"
+"      8 8888       8 8888        8 8 8888                   8 8888    ,o88P' .888888888. `88888.  8 8888        8 8888 8         `Y8o.`    8888     ,88'               8888     ,88'.888888888. `88888.   ,8'       `8        `8.`8888.  8 8888         \n"
+"      8 8888       8 8888        8 8 888888888888           8 888888888P'   .8'       `8. `88888. 8 8888        8 8888 8            `Yo     `8888888P'                  `8888888P' .8'       `8. `88888. ,8'         `         `8.`8888. 8 888888888888 \n"
+	
+	fake: .asciiz ""
+	wannaPlay: .asciiz "\n\n\n\n\nReady?  Let's play!\n\n\n\n\n"
 	askOut: .asciiz "\nH-hey, uh, Sunny.  Before you go, I just wanted to ask, um... Do you... Do you want to go somewhere with me?  Like, hang out or something?\n"
 	ynaskOut: .asciiz "\nOption 1: He means as a date, right?  Probably.  Subject yourself to the awkward date.  Do it.\nOption 2: Awkwardly decline knowing he'll cry himself to sleep tonight\n"
 	turnDown: .asciiz "\nUh, n-no.  No thanks, Will...\n"
@@ -78,18 +96,15 @@
 	date14Options: .asciiz "\nOption 1: Attempt to knock the knife out of his hands\nOption 2: Run away like those idiots in the scary movies\n"
 	date141: .asciiz "\nAs you both stand there, watching the other, Will attempts to stab you again.  You step to the side, then hit his wrist, and the knife slides across the ice.\nWhile he watches it get further and further away, you:\n"
 	date141Options: .asciiz "\n1) Punch him in the face\n2) Just turn around and run\n"
-
 	#During these 2 routes, you get killed either way
 	date1411: .asciiz "\nYou surge forward, moving to strike Will, but before you even touch him he's kicking your legs out, and you fall to the floor.  Your head is hit pretty hard, but you force yourself to focus.  Will reaches towards you, and you realize he's going to attempt to choke you.  You:\n"
 	date1411Options: .asciiz "\n1) Roll away\n2) Kick out at him when he gets close enough\n"
 	date14Roll: .asciiz "\nYou try to roll away, but the ice makes you slip.  Will pins you down with his weight.  The knife is too far away for either of you right now, but it doesn't matter.  Will has already wrapped his hands around your neck.\nAs you stare up at him, your kicking legs becoming more frantic, you see that creepy smile come back to him.  The last thought you have before everything goes dark is...\n'This is the worst date I've ever been on.'\n"
 	date14kick: .asciiz "\nJust as he gets close enough, you kick out at Will, hitting him right in the groin.  He bends over in pain and you try to crawl away quickly, but he recovers just as fast.  He grabs your ankle, pulls you closer and pins you down with his weight.  He's too angry to simply choke you now and instead raises your head, then slams it back down onto the ice.  It's hard to focus once again, and everything around you is going dark.  Your very last thought before everything ends is...'This jerk better not show up at my funeral.'\n"
-	
 	#Run1 for date141Options.  The knife has slid across the ice, and you're staring at each other
 	dateRun1: .asciiz "\nYou both stare at each other, then bolt at the same time; Will slides across the ice for the knife and you run for the door.\n"
 	#Run2 for 14ptions.  You run away while he still has the knife in his hands
 	dateRun2: .asciiz "\nTrying to turn and run, you slip after forgetting you're both on the ice.  Will comes up behind you, and brings the knife down.  Your last thought before everything goes dark is...\n'They better not put something stupid on my grave stone.'\n"
-	
 	date143: .asciiz "\nYou panic when you realize you and him are the only ones around.  The woods are just behind the rink, and the road around this part of the city is always empty.  You...\n"
 	date144: .asciiz "\n1) Run for the woods; at least this way you have the option to hide\n2) Pick up that nearby rock and hide behind the ice rink doors\n"
 	date1441: .asciiz "\nYou sprint away into the underbrush of the forest, snapping twigs beneath your feet.  Behind you the rink doors slam open, but you don't dare look back.  You worry for only a moment; Will's in football, what if he catches up to you?  Then you remember you've played soccer ever since you were able to walk.  There's only a small chance he'll catch up.\n"
@@ -106,7 +121,7 @@
 	date14493: .asciiz "\nBefore you have the chance to do anything, Marcus tackles Will and the knife flys into the air, dropping down right beside you.  You kick it away into the corner, then look back; Marcus and Will are grabbing, punching and bashing each other, yet neither is gaining an advantage over the other.\n"
 	rock1: .asciiz "\nYou move as silently as you can before hiding.  The doors to the rink slam open and Will moves forward, unaware you're now behind him.  Shaking from fear, you step forward and raise the rock above your head.  Just as Will realizes you're there, he turns with his knife ready to stab you, but it's too late; you slam the rock into his head with all your strength.  He falls to the floor, and you keep going until there's tears in your eyes and blood on the floor, on your clothes, on the rock...  You start sobbing and are almost unable to catch your breath.\n\nThrough the haze of all the thoughts flying through your head, you manage to take out your phone and call the police, telling them what happened.  Later, when the police, your mother, sister and Marcus show up, you're sitting on the seat of a police car, shock blanket wrapped around you.  Everyone crowds around to try and comfort you, but they can't.  You just had the  worst date of your life.\n"
 	date14494: .asciiz "\nThey both stand and face each other, but Will slips and falls, tumbling down the stairs.  You and Marcus stare in horror as Will remains still.  The ordeal is over, yet you're all still left with a feeling of dread.\n"
-	deadEnd: .asciiz "\nCongratulations, you've died.  At this date ended well for Will :)\n"
+	deadEnd: .asciiz "\nCongratulations, you've died.  At least this date ended well for Will :)\n"
 	deadEnd2: .asciiz "\nCongratulations, you've survived.  Unfortunately, you've killed your date.  Better luck next time, I guess.\n"
 	date2: .asciiz "\nDid you rent the place out or did everyone run at the sight of the gay couple walking in?\n"
 	date21: .asciiz "\nGay couple?  Where?\n"
@@ -173,7 +188,6 @@
 	dateMason4: .asciiz "\nDon't worry about it.\nHe leans over and pecks you on the cheek.  You blush heavily and look at him.\nYou look good no matter what you wear.\n"
 	dateMason5: .asciiz "\nWhen you two arrive at the restaurant, everything goes smoothly.  Because he's a regular, Mason has his own booth reserved in a quiet and private area in the back.  When you two sit down, convesation rolled on and never stopped other than to eat or talk to the waiter that came by.\n\nAt some point, while your hand was sitting on the table, Mason reaches over and lays his own on top of yours.  You blush and look up at him.\n\nAs the night passes by and you and Mason are driving off, you decide to take Mason up on another offer.  You call your mom and announce you won't be home tonight.\n"
 	dateMason6: .asciiz "\nCongratulations, you had two dates in one night.  One ended better than the other, though, if you know what I mean...\n"
-	
 	ice22: .asciiz "\nYeah, of course, of course.  I'm totally fine, let's just keep going.\n"
 	ice221: .asciiz "\nU-um are you sure?  You're bleeding out quite a bit.\n"
 	ice222: .asciiz "\nYeah, don't worry about me\n"
@@ -190,12 +204,22 @@
 	ice2233: .asciiz "\nYou get up and follow your mom out your room to the front desk.  You talk to some of the other nurses while you wait for her to finish checking you out, but feel a tap on your shoulder.  You turn around...\n"
 	#use shirt7
 	ice2234: .asciiz "\nHey, Mason.  Nothing much.  Will and I were hanging out when I fainted, so he brought me here.  Now I'm just waiting for my mom so that we can go home.  What're you doing here?\n"
-	
 	ice2235: .asciiz "\nMason starts walking out the exit and you decide to go with him.  You look to your mom and she tells you to go ahead.  You follow behind your friend and climb in his car.  Mason begins driving and you two sit in a comfortable silence.\n"
-
 	ice2236: .asciiz "\nNothing, actually.  We barely arrived when I broke my nose and fainted.\n"
 
 .text
+	li $v0, 4
+	la $a0, welcomeTo
+	syscall
+
+	li $v0, 4
+	la $a0, theDatingGame
+	syscall
+
+	li $v0, 4
+	la $a0, wannaPlay
+	syscall
+
 	#Will asking you (Sunny) out
 	li $v0, 4
 	la $a0, askOut
@@ -463,7 +487,7 @@
 	#If 2 (Let Someone Else Open), go to w2
 	beq $t1, 2, w2
 	#If 3 (Open Immediately), go to w3
-	beq $t1, 2, w3
+	beq $t1, 3, w3
 	
 	#Wait a little
 	w1:
@@ -669,11 +693,11 @@
 	syscall
 	
 	li $v0, 4
-	la $a0, wcar
+	la $a0, w3312
 	syscall
 	
 	li $v0, 4
-	la $a0, w3312
+	la $a0, wcar
 	syscall
 	
 	li $v0, 4
@@ -839,7 +863,7 @@
 	li $v0, 5
 	syscall
 	la $t1, ($v0)
-	
+
 	#If 1 (Punch), go to punch
 	beq $t1, 1, punch
 	#If 2 (Run), go to run
@@ -854,6 +878,9 @@
 	la $a0, deadEnd
 	syscall
 	
+	li $v0, 10
+	syscall
+	
 	#Punch him in the face after the knife slides out of his hands
 	punch:
 	li $v0, 4
@@ -864,8 +891,24 @@
 	la $a0, date1411Options
 	syscall
 	
-	li $v0, 10
+	li $v0, 4
+	la $a0, choose
 	syscall
+	
+	li $v0, 4
+	la $a0, twoOptions
+	syscall
+	
+	li $v0, 5
+	syscall
+	la $t1, ($v0)
+	
+	#Both these routes lead to you dying, ha
+	#If 1 (Roll), go to roll
+	beq $t1, 1, roll
+	#If 2 (Kick Out), go to kick
+	beq $t1, 2, kick
+	
 	
 	#Run away like those idiots in the scary movie (Leads to you getting killed)
 	idiots:
@@ -879,12 +922,6 @@
 	
 	li $v0, 10
 	syscall
-	
-	#Both these routes lead to you dying, ha
-	#If 1 (Roll), go to roll
-	beq $t1, 1, roll
-	#If 2 (Kick Out), go to kick
-	beq $t1, 2, kick
 	
 	#Roll away after you hit the ice
 	roll:

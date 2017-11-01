@@ -180,6 +180,20 @@
 	ice223: .asciiz "\nYou pick yourself up.  There's a lot more blood on the ice than you thought there'd be.  It's also still rushing down your chin.  You're starting to feel light-headed.\n"
 	ice224: .asciiz "\nSunny?  Woah, Sunny!\n"
 	ice225: .asciiz "\nYou hear Will yelling your name as you faint and fall to the ice again.  You're definitely going to have a concussion after this.\n\n\n\n"
+	ice226: .asciiz "\nYou wake up later.  You don't know how long you've been out, but when you open your eyes, you see your mom standing above you.  You're in the hospital.\n"
+	ice227: .asciiz "\n**Yang, are you okay?**\n\nYour mom's speaking in Mandarin, but she's calm.\n"
+	ice228: .asciiz "\n**Yeah, yeah...I'm okay.  Why am I in the hospital?**\n"
+	ice229: .asciiz "\n**Apparently you fainted on your...date?**\n"
+	ice2230: .asciiz "\n**Oh...Oh right...  Is Will still here?**\n"
+	ice2231: .asciiz "\n**No, his parents found out he was here and made him go home.  I'll discharge you at the front desk and we'll go home when my shift ends.**\n"
+	ice2232: .asciiz "\n**Yes, mom.**\n"
+	ice2233: .asciiz "\nYou get up and follow your mom out your room to the front desk.  You talk to some of the other nurses while you wait for her to finish checking you out, but feel a tap on your shoulder.  You turn around...\n"
+	#use shirt7
+	ice2234: .asciiz "\nHey, Mason.  Nothing much.  Will and I were hanging out when I fainted, so he brought me here.  Now I'm just waiting for my mom so that we can go home.  What're you doing here?\n"
+	
+	ice2235: .asciiz "\nMason starts walking out the exit and you decide to go with him.  You look to your mom and she tells you to go ahead.  You follow behind your friend and climb in his car.  Mason begins driving and you two sit in a comfortable silence.\n"
+
+	ice2236: .asciiz "\nNothing, actually.  We barely arrived when I broke my nose and fainted.\n"
 
 .text
 	#Will asking you (Sunny) out
@@ -1223,6 +1237,14 @@
 	syscall
 	
 	li $v0, 4
+	la $a0, shirt16
+	syscall
+	
+	li $v0, 4
+	la $a0, shirt17
+	syscall
+	
+	li $v0, 4
 	la $a0, shirtOptions
 	syscall
 	
@@ -1310,4 +1332,100 @@
 	li $v0, 4
 	la $a0, ice225
 	syscall
+	
+	li $v0, 4
+	la $a0, ice226
+	syscall
+	
+	li $v0, 4
+	la $a0, ice227
+	syscall
+	
+	li $v0, 4
+	la $a0, ice228
+	syscall
+	
+	li $v0, 4
+	la $a0, ice229
+	syscall
+	
+	li $v0, 4
+	la $a0, ice2230
+	syscall
+	
+	li $v0, 4
+	la $a0, ice2231
+	syscall
+	
+	li $v0, 4
+	la $a0, ice2232
+	syscall
+	
+	li $v0, 4
+	la $a0, ice2233
+	syscall
+	
+	li $v0, 4
+	la $a0, shirt7
+	syscall
+	
+	li $v0, 4
+	la $a0, ice2234
+	syscall
+	
+	li $v0, 4
+	la $a0, shirt9
+	syscall
+	
+	li $v0, 4
+	la $a0, shirt10
+	syscall
+	
+	li $v0, 4
+	la $a0, shirt11
+	syscall
+	
+	li $v0, 4
+	la $a0, ice2235
+	syscall
+	
+	li $v0, 4
+	la $a0, shirt13
+	syscall
+	
+	li $v0, 4
+	la $a0, shirt14
+	syscall
+	
+	li $v0, 4
+	la $a0, shirt15
+	syscall
+	
+	li $v0, 4
+	la $a0, shirt16
+	syscall
+	
+	li $v0, 4
+	la $a0, shirt17
+	syscall
+	
+	li $v0, 4
+	la $a0, shirtOptions
+	syscall
+	
+	li $v0, 4
+	la $a0, choose
+	syscall
+	
+	li $v0, 4
+	la $a0, twoOptions
+	syscall
+	
+	li $v0, 5
+	syscall
+	la $t1, ($v0)
+	#If 1 (Go home), go to nearEnd
+	beq $t1, 1, nearEnd
+	#If 2 (Go with Mason), go to secondDate
+	beq $t1, 2, secondDate
 	

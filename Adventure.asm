@@ -17,6 +17,7 @@
 	
 	fake: .asciiz ""
 	wannaPlay: .asciiz "\n\n\n\n\nReady?  Let's play!\n\n\n\n\n"
+	school: .asciiz "\nYou're sitting with your freinds outside for lunch when the bell rings.  All of you get up and are about to go your separate ways to all your classes when you're stopped by your friend Will.\n"
 	askOut: .asciiz "\nH-hey, uh, Sunny.  Before you go, I just wanted to ask, um... Do you... Do you want to go somewhere with me?  Like, hang out or something?\n"
 	ynaskOut: .asciiz "\nOption 1: He means as a date, right?  Probably.  Subject yourself to the awkward date.  Do it.\nOption 2: Awkwardly decline knowing he'll cry himself to sleep tonight\n"
 	turnDown: .asciiz "\nUh, n-no.  No thanks, Will...\n"
@@ -67,7 +68,7 @@
 	wSilent: .asciiz "\n--Will remains silent... Congratulations, you just made the car ride awkward.  Will turns on the radio to fill the silence, but you turn it off.--\n\nI hate that song.'\n"
 	w21: .asciiz "\nYou hear the door open while you wait, then your younger sister speaking (Even though you told her not to open the door to strangers, gosh dang it)\n"
 	w22: .asciiz "\nWho are you?\n"
-	w23: .asciiz "\nUm, hello.  I'm William Norman, Sunny's date?\n"
+	w23: .asciiz "\nUm, hello.  I'm William Norman, Sunny's friend?\n"
 	w24: .asciiz "\nUm... We don't have a Sunny here.\n"
 	w25: .asciiz "\nOh, a-are you sure?\n"
 	w26: .asciiz "\nYes, it's just me, m?q?n, and Yang...\n"
@@ -100,7 +101,7 @@
 	date1411: .asciiz "\nYou surge forward, moving to strike Will, but before you even touch him he's kicking your legs out, and you fall to the floor.  Your head is hit pretty hard, but you force yourself to focus.  Will reaches towards you, and you realize he's going to attempt to choke you.  You:\n"
 	date1411Options: .asciiz "\n1) Roll away\n2) Kick out at him when he gets close enough\n"
 	date14Roll: .asciiz "\nYou try to roll away, but the ice makes you slip.  Will pins you down with his weight.  The knife is too far away for either of you right now, but it doesn't matter.  Will has already wrapped his hands around your neck.\nAs you stare up at him, your kicking legs becoming more frantic, you see that creepy smile come back to him.  The last thought you have before everything goes dark is...\n'This is the worst date I've ever been on.'\n"
-	date14kick: .asciiz "\nJust as he gets close enough, you kick out at Will, hitting him right in the groin.  He bends over in pain and you try to crawl away quickly, but he recovers just as fast.  He grabs your ankle, pulls you closer and pins you down with his weight.  He's too angry to simply choke you now and instead raises your head, then slams it back down onto the ice.  It's hard to focus once again, and everything around you is going dark.  Your very last thought before everything ends is...'This jerk better not show up at my funeral.'\n"
+	date14kick: .asciiz "\nJust as he gets close enough, you kick out at Will, hitting him right in the groin.  He bends over in pain and you try to crawl away quickly, but he recovers just as fast.\nHe grabs your ankle, pulls you closer and pins you down with his weight.  He's too angry to simply choke you now and instead raises your head, then slams it back down onto the ice.\nIt's hard to focus once again, and everything around you is going dark.  Your very last thought before everything ends is...'This jerk better not show up at my funeral.'\n"
 	#Run1 for date141Options.  The knife has slid across the ice, and you're staring at each other
 	dateRun1: .asciiz "\nYou both stare at each other, then bolt at the same time; Will slides across the ice for the knife and you run for the door.\n"
 	#Run2 for 14ptions.  You run away while he still has the knife in his hands
@@ -218,6 +219,10 @@
 
 	li $v0, 4
 	la $a0, wannaPlay
+	syscall
+
+	li $v0, 4
+	la $a0, school
 	syscall
 
 	#Will asking you (Sunny) out
